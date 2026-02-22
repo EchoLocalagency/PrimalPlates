@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Menu | Primal Plates - Organic Meal Prep in Orange County</title>
+  <meta name="description" content="This week's menu from Primal Plates. Organic, seed oil free meal prep with pasture raised meats. Order by Sunday for fresh delivery in Orange County.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pp-bg': '#0F0F0F',
+            'pp-surface': '#1A1A1A',
+            'pp-gold': '#C4A265',
+            'pp-sage': '#7A8B6F',
+            'pp-body': '#E8E0D8',
+            'pp-muted': '#8A7F79',
+            'pp-hover': '#A87F5D',
+            'pp-border': '#2A2520',
+          },
+          fontFamily: {
+            'headline': ['Playfair Display', 'serif'],
+            'body': ['DM Sans', 'sans-serif'],
+            'mono': ['JetBrains Mono', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-pp-bg text-pp-body font-body">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav flex items-center justify-between">
+    <a href="index.html" class="nav-brand">Primal Plates</a>
+
+    <div class="nav-links hidden md:flex items-center gap-8">
+      <a href="index.html#menu">This Week</a>
+      <a href="index.html#story">Our Story</a>
+      <a href="areas.html">Service Areas</a>
+      <a href="order.html" class="text-pp-gold">Order</a>
+    </div>
+
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav">
+    <a href="index.html#menu">This Week</a>
+    <a href="index.html#story">Our Story</a>
+    <a href="areas.html">Service Areas</a>
+    <a href="order.html">Order</a>
+  </div>
+
+
+  <!-- ========== MENU HEADER ========== -->
+  <section class="section pt-32 md:pt-40">
+    <div class="container">
+      <p class="section-label" data-aos="fade-up">Full Menu</p>
+      <h1 class="font-headline text-4xl md:text-5xl mb-4" data-aos="fade-up">
+        This Week's Meals
+      </h1>
+      <p class="text-pp-muted max-w-lg mb-4" data-aos="fade-up">
+        Everything made from scratch. Organic ingredients, pasture raised meats, zero seed oils. Rotating weekly.
+      </p>
+      <div class="inline-flex items-center gap-2 bg-pp-surface border border-pp-border px-4 py-2" data-aos="fade-up">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-pp-gold" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="font-mono text-xs text-pp-gold tracking-wider">ORDERS CLOSE SUNDAY NIGHT</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== MENU GRID ========== -->
+  <section class="section pt-8">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Barbacoa Beef Bowl (dish-3 = shredded beef with corn & rice) -->
+        <div class="menu-card" data-aos="fade-up">
+          <img src="images/dishes/dish-3.jpg" alt="Barbacoa Beef Bowl" class="img-dark-treatment" loading="lazy">
+          <div class="menu-card-body">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge">Grass Fed</span>
+              <span class="badge">Organic</span>
+            </div>
+            <h3 class="font-headline text-xl mb-2">Barbacoa Beef Bowl</h3>
+            <p class="text-pp-muted text-sm">Slow-cooked grass fed barbacoa over organic Lundberg Farms rice with house-made salsa verde, pickled onions, and fresh cilantro from our garden.</p>
+          </div>
+        </div>
+
+        <!-- Mediterranean Chicken (dish-1 = chicken thighs with rice, green beans, avocado) -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/dishes/dish-1.jpg" alt="Mediterranean Chicken with Coconut Rice" class="img-dark-treatment" loading="lazy">
+          <div class="menu-card-body">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge">Pasture Raised</span>
+              <span class="badge">Garden Herbs</span>
+            </div>
+            <h3 class="font-headline text-xl mb-2">Mediterranean Chicken w/ Coconut Rice</h3>
+            <p class="text-pp-muted text-sm">Herb-marinated pasture raised chicken thighs with fluffy coconut rice, house-made tzatziki, cucumber, and fresh garden herbs.</p>
+          </div>
+        </div>
+
+        <!-- Grass Fed Picanha (divider.jpg = picanha with sweet potato mash & zucchini) -->
+        <div class="menu-card" data-aos="fade-up">
+          <img src="images/divider.jpg" alt="Grass Fed Picanha with Bourbon Butter" class="img-dark-treatment" loading="lazy">
+          <div class="menu-card-body">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge">Grass Fed</span>
+              <span class="badge">Premium Cut</span>
+            </div>
+            <h3 class="font-headline text-xl mb-2">Grass Fed Picanha w/ Bourbon Butter</h3>
+            <p class="text-pp-muted text-sm">Perfectly seared grass fed picanha topped with house bourbon butter. Served with roasted seasonal vegetables and garlic herb potatoes.</p>
+          </div>
+        </div>
+
+        <!-- Tri-Tip + Chimichurri (dish-2 = tri-tip with sweet potato mash, cauliflower, chimichurri) -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/dishes/dish-2.jpg" alt="Tri-Tip with Chimichurri" class="img-dark-treatment" loading="lazy">
+          <div class="menu-card-body">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge">Grass Fed</span>
+              <span class="badge">Garden Herbs</span>
+            </div>
+            <h3 class="font-headline text-xl mb-2">Tri-Tip + Chimichurri</h3>
+            <p class="text-pp-muted text-sm">Slow-smoked tri-tip sliced thin with vibrant chimichurri made from fresh garden parsley, oregano, and garlic. Paired with organic rice.</p>
+          </div>
+        </div>
+
+        <!-- Dish 5 -->
+        <div class="menu-card" data-aos="fade-up">
+          <img src="images/dishes/dish-5.jpg" alt="Primal Maple Cheesecake" class="img-dark-treatment" loading="lazy">
+          <div class="menu-card-body">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge">Organic</span>
+              <span class="badge">Dessert</span>
+            </div>
+            <h3 class="font-headline text-xl mb-2">Primal Maple Cheesecake</h3>
+            <p class="text-pp-muted text-sm">Rich, creamy cheesecake sweetened with pure maple syrup. Grain-free almond crust. No refined sugar, no seed oils. Dessert done right.</p>
+          </div>
+        </div>
+
+        <!-- Dish 6 -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/dishes/dish-6.jpg" alt="Seasonal Special" class="img-dark-treatment" loading="lazy">
+          <div class="menu-card-body">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge">Organic</span>
+              <span class="badge">Seasonal</span>
+            </div>
+            <h3 class="font-headline text-xl mb-2">Chef's Seasonal Special</h3>
+            <p class="text-pp-muted text-sm">A rotating dish featuring the best seasonal ingredients available. Follow us on Instagram for this week's special announcement.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== ORDER CTA ========== -->
+  <section class="section">
+    <div class="container text-center">
+      <div class="bg-pp-surface border border-pp-border p-10 md:p-16" data-aos="fade-up">
+        <h2 class="font-headline text-3xl md:text-4xl mb-4">Ready to eat right?</h2>
+        <p class="text-pp-muted mb-8 max-w-md mx-auto text-sm">Submit your order by Sunday night. We'll cook everything fresh and deliver during the week.</p>
+        <a href="order.html" class="btn-gold">Place Your Order</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="py-10 px-6">
+    <div class="container flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="index.html" class="font-headline text-sm tracking-widest text-pp-muted hover:text-pp-gold transition-colors">PRIMAL PLATES</a>
+      <p class="text-pp-muted text-xs font-mono tracking-wider">Food Done Right</p>
+      <div class="flex items-center gap-6">
+        <a href="https://www.instagram.com/primalplates_/" target="_blank" rel="noopener noreferrer" class="text-pp-muted hover:text-pp-gold text-xs">
+          Instagram
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

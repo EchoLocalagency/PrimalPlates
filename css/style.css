@@ -1,0 +1,518 @@
+/* ============================================
+   PRIMAL PLATES -- Custom Styles
+   Tailwind handles utilities; this file handles
+   custom properties, overrides, and animations
+   ============================================ */
+
+/* --- Custom Properties --- */
+:root {
+  --bg-primary: #0F0F0F;
+  --bg-surface: #1A1A1A;
+  --accent-gold: #C4A265;
+  --accent-sage: #7A8B6F;
+  --text-body: #E8E0D8;
+  --text-muted: #8A7F79;
+  --cta-hover: #A87F5D;
+  --border-warm: #2A2520;
+  --font-headline: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* --- Base Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-warm);
+  border-radius: 4px;
+}
+
+/* --- Navigation --- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1.25rem 2rem;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.nav.scrolled {
+  background-color: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.75rem 2rem;
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.nav-brand {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  letter-spacing: 0.2em;
+  color: var(--text-body);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-gold);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-body);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 15, 15, 0.98);
+  z-index: 40;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.mobile-nav.open {
+  display: flex;
+}
+
+.mobile-nav a {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  color: var(--text-body);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav a:hover {
+  color: var(--accent-gold);
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 15, 15, 0.5) 0%,
+    rgba(15, 15, 15, 0.7) 50%,
+    rgba(15, 15, 15, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Buttons --- */
+.btn-gold {
+  display: inline-block;
+  padding: 0.875rem 2.25rem;
+  background-color: var(--accent-gold);
+  color: var(--bg-primary);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-gold:hover {
+  background-color: var(--cta-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--accent-gold);
+  color: var(--bg-primary);
+}
+
+/* --- Section Spacing --- */
+.section {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 8rem 2rem;
+  }
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+/* --- Pillar Cards --- */
+.pillar-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--border-warm);
+  background: var(--bg-surface);
+  transition: border-color 0.3s ease;
+}
+
+.pillar-card:hover {
+  border-color: var(--accent-gold);
+}
+
+.pillar-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1.25rem;
+  color: var(--accent-sage);
+}
+
+/* --- How It Works --- */
+.step-number {
+  font-family: var(--font-headline);
+  font-size: 3rem;
+  color: var(--accent-gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.step-connector {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .step-connector {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--border-warm);
+    margin-top: 1.5rem;
+  }
+}
+
+/* --- Menu Cards --- */
+.menu-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-warm);
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+}
+
+.menu-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.menu-card-body {
+  padding: 1.25rem;
+}
+
+.menu-featured {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .menu-featured {
+    grid-column: 1 / 3;
+  }
+
+  .menu-featured img {
+    aspect-ratio: 16/9;
+  }
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  background-color: rgba(122, 139, 111, 0.15);
+  color: var(--accent-sage);
+  border: 1px solid rgba(122, 139, 111, 0.3);
+}
+
+/* --- Parallax Divider --- */
+.parallax-divider {
+  height: 50vh;
+  min-height: 300px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.parallax-divider::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-primary) 0%,
+    transparent 20%,
+    transparent 80%,
+    var(--bg-primary) 100%
+  );
+}
+
+/* iOS fix: background-attachment: fixed doesn't work on mobile */
+@supports (-webkit-touch-callout: none) {
+  .parallax-divider {
+    background-attachment: scroll;
+  }
+}
+
+/* --- Story Section --- */
+.story-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .story-image {
+    aspect-ratio: 4/5;
+  }
+}
+
+/* --- Quote Cards --- */
+.quote-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-warm);
+  padding: 2rem;
+  position: relative;
+}
+
+.quote-card::before {
+  content: '\201C';
+  font-family: var(--font-headline);
+  font-size: 4rem;
+  color: var(--accent-gold);
+  opacity: 0.3;
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  line-height: 1;
+}
+
+/* --- Form --- */
+.form-input {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-warm);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus {
+  border-bottom-color: var(--accent-gold);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+
+.form-success.show {
+  display: block;
+}
+
+/* --- Footer --- */
+footer {
+  border-top: 1px solid var(--border-warm);
+}
+
+footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--accent-gold);
+}
+
+/* --- Image Treatment --- */
+.img-dark-treatment {
+  filter: brightness(0.85) contrast(1.05) saturate(0.95);
+}
+
+/* --- Utility --- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Loading Placeholder --- */
+.img-placeholder {
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem !important;
+  }
+
+  .section {
+    padding: 4rem 1rem;
+  }
+}
