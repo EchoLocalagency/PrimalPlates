@@ -83,12 +83,14 @@ h1, h2, h3, h4 {
 }
 
 .nav-brand {
-  font-family: var(--font-headline);
-  font-size: 1.25rem;
-  letter-spacing: 0.2em;
-  color: var(--text-body);
   text-decoration: none;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 50px;
+  width: auto;
 }
 
 .nav-links a {
