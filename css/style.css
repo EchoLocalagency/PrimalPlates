@@ -86,11 +86,20 @@ h1, h2, h3, h4 {
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap: 0.6rem;
 }
 
 .nav-logo {
   height: 50px;
   width: auto;
+}
+
+.nav-brand-text {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  letter-spacing: 0.2em;
+  color: var(--text-body);
+  text-transform: uppercase;
 }
 
 .nav-links a {
