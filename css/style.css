@@ -1,21 +1,39 @@
 /* ============================================
-   PRIMAL PLATES -- Custom Styles
-   Tailwind handles utilities; this file handles
-   custom properties, overrides, and animations
+   PRIMAL PLATES -- Custom Styles (V2: Earthy Light)
    ============================================ */
+
+/* --- Custom Fonts --- */
+@font-face {
+  font-family: 'Market Deco';
+  src: url('../fonts/Market_Deco.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Humanist';
+  src: url('../fonts/Humanist.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* --- Custom Properties --- */
 :root {
-  --bg-primary: #0F0F0F;
-  --bg-surface: #1A1A1A;
-  --accent-gold: #C4A265;
-  --accent-sage: #7A8B6F;
-  --text-body: #E8E0D8;
-  --text-muted: #8A7F79;
-  --cta-hover: #A87F5D;
-  --border-warm: #2A2520;
-  --font-headline: 'Playfair Display', serif;
-  --font-body: 'DM Sans', sans-serif;
+  --bg-primary: #F5EFE6;
+  --bg-surface: #FFFFFF;
+  --accent-terra: #C1574A;
+  --accent-sage: #8B9D83;
+  --accent-brown: #6B4E3D;
+  --accent-tan: #D4B896;
+  --text-body: #6B4E3D;
+  --text-muted: #8B7E74;
+  --text-heading: #4A3728;
+  --cta-hover: #A8463B;
+  --border-warm: #D4B896;
+  --font-headline: 'Market Deco', serif;
+  --font-body: 'Humanist', 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -43,8 +61,10 @@ body {
 /* --- Typography --- */
 h1, h2, h3, h4 {
   font-family: var(--font-headline);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.15;
+  color: var(--text-heading);
+  letter-spacing: 0.04em;
 }
 
 .font-mono {
@@ -59,7 +79,7 @@ h1, h2, h3, h4 {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-warm);
+  background: var(--accent-tan);
   border-radius: 4px;
 }
 
@@ -71,15 +91,15 @@ h1, h2, h3, h4 {
   right: 0;
   z-index: 50;
   padding: 1.25rem 2rem;
-  transition: background-color 0.3s ease, padding 0.3s ease;
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav.scrolled {
-  background-color: rgba(15, 15, 15, 0.95);
+  background-color: rgba(245, 239, 230, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 0.75rem 2rem;
-  border-bottom: 1px solid var(--border-warm);
+  box-shadow: 0 1px 12px rgba(107, 78, 61, 0.08);
 }
 
 .nav-brand {
@@ -98,10 +118,11 @@ h1, h2, h3, h4 {
   font-family: var(--font-headline);
   font-size: 1.25rem;
   letter-spacing: 0.2em;
-  color: var(--text-body);
+  color: var(--text-heading);
   text-transform: uppercase;
 }
 
+/* Nav text: dark on light pages, light over hero */
 .nav-links a {
   color: var(--text-muted);
   text-decoration: none;
@@ -111,7 +132,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-links a:hover {
-  color: var(--accent-gold);
+  color: var(--accent-terra);
 }
 
 /* Hamburger */
@@ -129,7 +150,7 @@ h1, h2, h3, h4 {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--text-body);
+  background-color: var(--text-heading);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -148,7 +169,7 @@ h1, h2, h3, h4 {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 15, 15, 0.98);
+  background-color: rgba(245, 239, 230, 0.98);
   z-index: 40;
   flex-direction: column;
   align-items: center;
@@ -163,13 +184,14 @@ h1, h2, h3, h4 {
 .mobile-nav a {
   font-family: var(--font-headline);
   font-size: 1.5rem;
-  color: var(--text-body);
+  color: var(--text-heading);
   text-decoration: none;
+  letter-spacing: 0.06em;
   transition: color 0.2s ease;
 }
 
 .mobile-nav a:hover {
-  color: var(--accent-gold);
+  color: var(--accent-terra);
 }
 
 /* --- Hero --- */
@@ -197,9 +219,9 @@ h1, h2, h3, h4 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15, 15, 15, 0.5) 0%,
-    rgba(15, 15, 15, 0.7) 50%,
-    rgba(15, 15, 15, 0.95) 100%
+    rgba(74, 55, 40, 0.4) 0%,
+    rgba(74, 55, 40, 0.6) 50%,
+    rgba(245, 239, 230, 1) 100%
   );
   z-index: 1;
 }
@@ -209,12 +231,17 @@ h1, h2, h3, h4 {
   z-index: 2;
 }
 
+/* Hero text stays white for readability over dark overlay */
+.hero h1 {
+  color: #FFFFFF;
+}
+
 /* --- Buttons --- */
 .btn-gold {
   display: inline-block;
   padding: 0.875rem 2.25rem;
-  background-color: var(--accent-gold);
-  color: var(--bg-primary);
+  background-color: var(--accent-terra);
+  color: #FFFFFF;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.875rem;
@@ -223,20 +250,19 @@ h1, h2, h3, h4 {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
 .btn-gold:hover {
   background-color: var(--cta-hover);
-  transform: translateY(-1px);
 }
 
 .btn-outline {
   display: inline-block;
   padding: 0.75rem 2rem;
   background: transparent;
-  color: var(--accent-gold);
-  border: 1px solid var(--accent-gold);
+  color: var(--accent-terra);
+  border: 1px solid var(--accent-terra);
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.875rem;
@@ -248,8 +274,8 @@ h1, h2, h3, h4 {
 }
 
 .btn-outline:hover {
-  background-color: var(--accent-gold);
-  color: var(--bg-primary);
+  background-color: var(--accent-terra);
+  color: #FFFFFF;
 }
 
 /* --- Section Spacing --- */
@@ -268,7 +294,7 @@ h1, h2, h3, h4 {
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--accent-gold);
+  color: var(--accent-terra);
   margin-bottom: 1rem;
 }
 
@@ -282,7 +308,7 @@ h1, h2, h3, h4 {
 }
 
 .pillar-card:hover {
-  border-color: var(--accent-gold);
+  border-color: var(--accent-terra);
 }
 
 .pillar-icon {
@@ -296,7 +322,7 @@ h1, h2, h3, h4 {
 .step-number {
   font-family: var(--font-headline);
   font-size: 3rem;
-  color: var(--accent-gold);
+  color: var(--accent-terra);
   opacity: 0.3;
   line-height: 1;
 }
@@ -320,12 +346,11 @@ h1, h2, h3, h4 {
   background: var(--bg-surface);
   border: 1px solid var(--border-warm);
   overflow: hidden;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 .menu-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
+  border-color: var(--accent-terra);
 }
 
 .menu-card img {
@@ -359,9 +384,9 @@ h1, h2, h3, h4 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.25rem 0.625rem;
-  background-color: rgba(122, 139, 111, 0.15);
+  background-color: rgba(139, 157, 131, 0.12);
   color: var(--accent-sage);
-  border: 1px solid rgba(122, 139, 111, 0.3);
+  border: 1px solid rgba(139, 157, 131, 0.25);
 }
 
 /* --- Parallax Divider --- */
@@ -387,7 +412,6 @@ h1, h2, h3, h4 {
   );
 }
 
-/* iOS fix: background-attachment: fixed doesn't work on mobile */
 @supports (-webkit-touch-callout: none) {
   .parallax-divider {
     background-attachment: scroll;
@@ -419,7 +443,7 @@ h1, h2, h3, h4 {
   content: '\201C';
   font-family: var(--font-headline);
   font-size: 4rem;
-  color: var(--accent-gold);
+  color: var(--accent-terra);
   opacity: 0.3;
   position: absolute;
   top: 0.5rem;
@@ -446,7 +470,7 @@ h1, h2, h3, h4 {
 }
 
 .form-input:focus {
-  border-bottom-color: var(--accent-gold);
+  border-bottom-color: var(--accent-terra);
 }
 
 textarea.form-input {
@@ -476,12 +500,12 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--accent-gold);
+  color: var(--accent-terra);
 }
 
 /* --- Image Treatment --- */
 .img-dark-treatment {
-  filter: brightness(0.85) contrast(1.05) saturate(0.95);
+  filter: brightness(0.95) contrast(1.02) saturate(1.05);
 }
 
 /* --- Utility --- */

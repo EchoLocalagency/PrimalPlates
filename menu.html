@@ -10,9 +10,6 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,18 +18,21 @@
       theme: {
         extend: {
           colors: {
-            'pp-bg': '#0F0F0F',
-            'pp-surface': '#1A1A1A',
-            'pp-gold': '#C4A265',
-            'pp-sage': '#7A8B6F',
-            'pp-body': '#E8E0D8',
-            'pp-muted': '#8A7F79',
-            'pp-hover': '#A87F5D',
-            'pp-border': '#2A2520',
+            'pp-bg': '#F5EFE6',
+            'pp-surface': '#FFFFFF',
+            'pp-gold': '#C1574A',
+            'pp-sage': '#8B9D83',
+            'pp-body': '#6B4E3D',
+            'pp-muted': '#8B7E74',
+            'pp-hover': '#A8463B',
+            'pp-border': '#D4B896',
+            'pp-brown': '#6B4E3D',
+            'pp-tan': '#D4B896',
+            'pp-cream': '#F5EFE6',
           },
           fontFamily: {
-            'headline': ['Playfair Display', 'serif'],
-            'body': ['DM Sans', 'sans-serif'],
+            'headline': ['Market Deco', 'serif'],
+            'body': ['Humanist', 'DM Sans', 'sans-serif'],
             'mono': ['JetBrains Mono', 'monospace'],
           },
         }
@@ -98,86 +98,7 @@
   <!-- ========== MENU GRID ========== -->
   <section class="section pt-8">
     <div class="container">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <!-- Barbacoa Beef Bowl (dish-3 = shredded beef with corn & rice) -->
-        <div class="menu-card" data-aos="fade-up">
-          <img src="images/dishes/dish-3.jpg" alt="Barbacoa Beef Bowl" class="img-dark-treatment" loading="lazy">
-          <div class="menu-card-body">
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="badge">Grass Fed</span>
-              <span class="badge">Organic</span>
-            </div>
-            <h3 class="font-headline text-xl mb-2">Barbacoa Beef Bowl</h3>
-            <p class="text-pp-muted text-sm">Slow-cooked grass fed barbacoa over organic Lundberg Farms rice with house-made salsa verde, pickled onions, and fresh cilantro from our garden.</p>
-          </div>
-        </div>
-
-        <!-- Mediterranean Chicken (dish-1 = chicken thighs with rice, green beans, avocado) -->
-        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="images/dishes/dish-1.jpg" alt="Mediterranean Chicken with Coconut Rice" class="img-dark-treatment" loading="lazy">
-          <div class="menu-card-body">
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="badge">Pasture Raised</span>
-              <span class="badge">Garden Herbs</span>
-            </div>
-            <h3 class="font-headline text-xl mb-2">Mediterranean Chicken w/ Coconut Rice</h3>
-            <p class="text-pp-muted text-sm">Herb-marinated pasture raised chicken thighs with fluffy coconut rice, house-made tzatziki, cucumber, and fresh garden herbs.</p>
-          </div>
-        </div>
-
-        <!-- Grass Fed Picanha (divider.jpg = picanha with sweet potato mash & zucchini) -->
-        <div class="menu-card" data-aos="fade-up">
-          <img src="images/divider.jpg" alt="Grass Fed Picanha with Bourbon Butter" class="img-dark-treatment" loading="lazy">
-          <div class="menu-card-body">
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="badge">Grass Fed</span>
-              <span class="badge">Premium Cut</span>
-            </div>
-            <h3 class="font-headline text-xl mb-2">Grass Fed Picanha w/ Bourbon Butter</h3>
-            <p class="text-pp-muted text-sm">Perfectly seared grass fed picanha topped with house bourbon butter. Served with roasted seasonal vegetables and garlic herb potatoes.</p>
-          </div>
-        </div>
-
-        <!-- Tri-Tip + Chimichurri (dish-2 = tri-tip with sweet potato mash, cauliflower, chimichurri) -->
-        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="images/dishes/dish-2.jpg" alt="Tri-Tip with Chimichurri" class="img-dark-treatment" loading="lazy">
-          <div class="menu-card-body">
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="badge">Grass Fed</span>
-              <span class="badge">Garden Herbs</span>
-            </div>
-            <h3 class="font-headline text-xl mb-2">Tri-Tip + Chimichurri</h3>
-            <p class="text-pp-muted text-sm">Slow-smoked tri-tip sliced thin with vibrant chimichurri made from fresh garden parsley, oregano, and garlic. Paired with organic rice.</p>
-          </div>
-        </div>
-
-        <!-- Dish 5 -->
-        <div class="menu-card" data-aos="fade-up">
-          <img src="images/dishes/dish-5.jpg" alt="Primal Maple Cheesecake" class="img-dark-treatment" loading="lazy">
-          <div class="menu-card-body">
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="badge">Organic</span>
-              <span class="badge">Dessert</span>
-            </div>
-            <h3 class="font-headline text-xl mb-2">Primal Maple Cheesecake</h3>
-            <p class="text-pp-muted text-sm">Rich, creamy cheesecake sweetened with pure maple syrup. Grain-free almond crust. No refined sugar, no seed oils. Dessert done right.</p>
-          </div>
-        </div>
-
-        <!-- Dish 6 -->
-        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="images/dishes/dish-6.jpg" alt="Seasonal Special" class="img-dark-treatment" loading="lazy">
-          <div class="menu-card-body">
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="badge">Organic</span>
-              <span class="badge">Seasonal</span>
-            </div>
-            <h3 class="font-headline text-xl mb-2">Chef's Seasonal Special</h3>
-            <p class="text-pp-muted text-sm">A rotating dish featuring the best seasonal ingredients available. Follow us on Instagram for this week's special announcement.</p>
-          </div>
-        </div>
-
+      <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
       </div>
     </div>
   </section>
@@ -213,6 +134,8 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <!-- Main JS -->
   <script src="js/main.js"></script>
+  <!-- Menu Loader -->
+  <script src="js/menu-loader.js"></script>
 
 </body>
 </html>
