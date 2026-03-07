@@ -184,3 +184,86 @@ async function loadMenu() {
 }
 
 loadMenu();
+
+
+/**
+ * Testimonials Loader -- pulls from "Testimonials" tab on the same Google Sheet.
+ * Columns: quote, name, source
+ */
+
+const TESTIMONIALS_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet2`;
+
+function sheetRowsToTestimonials(rows) {
+  if (rows.length < 2) return [];
+  const headers = rows[0].map(h => h.toLowerCase().trim());
+  const items = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const cells = rows[i];
+    const obj = {};
+    headers.forEach((h, idx) => { obj[h] = (cells[idx] || '').trim(); });
+
+    if (!obj.quote) continue;
+
+    items.push({
+      quote: obj.quote,
+      name: obj.name || '',
+    });
+  }
+  return items;
+}
+
+function renderTestimonialCard(item, delay) {
+  const card = document.createElement('div');
+  card.className = 'quote-card';
+  card.setAttribute('data-aos', 'fade-up');
+  card.setAttribute('data-aos-delay', String(delay));
+
+  const attribution = item.name ? `-- ${item.name}` : '';
+
+  card.innerHTML =
+    `<p class="text-pp-body text-sm leading-relaxed mt-6 mb-4">"${item.quote}"</p>` +
+    (attribution ? `<p class="text-pp-muted text-xs font-mono">${attribution}</p>` : '');
+
+  return card;
+}
+
+function renderTestimonialSkeletons(container, count) {
+  for (let i = 0; i < count; i++) {
+    const skel = document.createElement('div');
+    skel.className = 'quote-card animate-pulse';
+    skel.innerHTML =
+      `<div class="bg-pp-border/30 h-4 w-full rounded mb-2 mt-6"></div>
+       <div class="bg-pp-border/30 h-4 w-3/4 rounded mb-4"></div>
+       <div class="bg-pp-border/30 h-3 w-1/3 rounded"></div>`;
+    container.appendChild(skel);
+  }
+}
+
+async function loadTestimonials() {
+  const grid = document.getElementById('testimonials-grid');
+  if (!grid) return;
+
+  renderTestimonialSkeletons(grid, 3);
+
+  try {
+    const res = await fetch(TESTIMONIALS_CSV_URL);
+    if (!res.ok) throw new Error('Testimonials sheet fetch failed');
+    const text = await res.text();
+    const rows = parseCSV(text);
+    const items = sheetRowsToTestimonials(rows);
+
+    if (items.length === 0) {
+      grid.innerHTML = '';
+      return;
+    }
+
+    grid.innerHTML = '';
+    items.forEach((item, i) => grid.appendChild(renderTestimonialCard(item, i * 200)));
+  } catch (err) {
+    console.error('Testimonials load error:', err);
+    grid.innerHTML = '';
+  }
+}
+
+loadTestimonials();
